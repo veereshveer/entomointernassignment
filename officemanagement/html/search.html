@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- css file  -->
+    <link rel="stylesheet" href="overall.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12" id="headerdiv" style="padding-top:2%">
+
+                <div id="header">
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4" id="navgation">
+                <div id="navbar" style="margin-left: 8%; margin-right: 20%; ">
+
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-8" style="margin-top:  5%;">
+
+                <form name="registernewemplyoeeform" id="registernewemplyoeeform">
+
+                    <div class="form-group col-xs-6 col-md- col-lg-6">
+                        <label class="control-label" for="entomoemployeeName">New Employee Name *</label>
+                        <input type="text" name="entomoemployeename" id="entomoemployeename" class="form-control"
+                            maxlength="128" placeholder="Provide full name of the emplyee"
+                            data-required-error="This is a mandatory field" required />
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group col-xs-6 col-md-6 col-lg-">
+                        <label class="control-label" for="entomoemployeeid">Employee ID *</label>
+                        <input type="text" name="entomoemployeeid" id="entomoemployeelid" class="form-control"
+                            maxlength="128" placeholder="Provide employee id"
+                            data-required-error="This is a mandatory field" required />
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group col-xs-6 col-md-6 col-lg-6">
+                        <label class="control-label" for="entomoemployeeusername">Project Name *</label>
+                        <input type="text" name="entomoemployeeusername" id="entomoemployeeusername"
+                            class="form-control" maxlength="64" placeholder="Provide project name"
+                            data-required-error="This is a mandatory field" required />
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group col-xs-6 col-md- col-lg-6">
+                        <label class="control-label" for="entomoemployeepassword">Project code *</label>
+                        <input type="text" name="entomoemployeepassword" id="entomoemployeepassword"
+                            class="form-control" maxlength="64" placeholder="Provide project code"
+                            data-required-error="This is a mandatory field" required />
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-xs-6 col-md- col-lg-6">
+                        <label class="control-label" for="entomoemployeepassword">Department name *</label>
+                        <input type="text" name="entomoemployeepassword" id="entomoemployeepassword"
+                            class="form-control" maxlength="64" placeholder="Provide department name"
+                            data-required-error="This is a mandatory field" required />
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <div class="form-group col-xs-6 col-md-6 col-lg-6">
+        <div class="modal-footer">
+            <button type="button" id="savenewemplyee" class="btn btn-success pull-left">Search</button>
+            <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+
+    <script type="application/javascript">
+        $('#header').load('header.html');
+
+        $('#navbar').load('navbar.html');
+    </script>
+</body>
+
+</html>

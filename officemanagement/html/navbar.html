@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Angular Example</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- css file  -->
+  <link rel="stylesheet" href="overall.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+  <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" language="javascript"
+    src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" language="javascript"
+    src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+</head>
+
+<body>
+<!-- <div class="">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 "> -->
+          <!-- <nav class="navbar"> -->
+            <ul class="navbar-nav nav " style="margin-top: 15%;" >
+  
+            
+                <li class="nav-item" style="margin-top: 2vh;">
+                  <a class="btn btn-secondary btn-block" href="department.html">Department</a>
+                </li>
+             
+              <li class="nav-item" style=" margin-top: 2vh;">
+                <a class="btn btn-secondary btn-block active " href="project.html">Project</a>
+              </li>
+              <li class="nav-item" style="margin-top: 2vh;">
+                <a class="btn btn-secondary btn-block" href="emplyee.html">Employee</a>
+              </li>
+              <li class="nav-item" style="margin-top: 2vh;">
+                <a class="btn btn-secondary btn-block" href="search.html">Search</a>
+              </li>
+              <li class="nav-item" style="margin-top: 2vh;">
+                <a class="btn btn-secondary btn-block" href="report.html">Report</a>
+              </li>
+              <li class="nav-item" style="margin-top: 2vh;">
+                <a class="btn btn-secondary btn-block" href="results.html">Results</a>
+              </li>
+            </ul>
+          <!-- </nav> -->
+      <!--   </div>
+      </div> -->
+      <script type="text/javascript">
+        // making current page active
+        $(function () {
+          var current = location.pathname;
+          $('.nav li a').each(function () {
+    
+            var $this = $(this);
+            // if the current path is like this link, make it active
+            if ($this.attr('href').indexOf(current) !== -1) {
+              $this.addClass(' btn btn-secondary btn-block active');
+            }
+          })
+        })
+        </script>
+       </body> 
+       </html>

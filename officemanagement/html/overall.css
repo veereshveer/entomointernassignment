@@ -1,0 +1,22 @@
+.dataTables_filter, .dataTables_info { display: none; }
+
+body{
+background-color: #E1F5FE;
+}
+
+.btn{
+    background-color: #01579B;
+}
+#navgation{
+    background-color: #abd1ee;
+}
+
+#headerdiv{
+    background-color: #039BE5;
+}
+.nav-item{
+    border-color: #01579B;
+}
+.control-label{
+    text-align: center;
+}

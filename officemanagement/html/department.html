@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Index page</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Linking main page to all pages -->
+    <link rel="import" href="../html/header.html">
+
+    <!-- css file  -->
+    <link rel="stylesheet" href="overall.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+</head>
+
+<body style="background-color: #E1F5FE;;">
+
+    <div class="modal fade" data-backdrop="static" data-keyboard="false" id="registerDeptModal" tabindex="-1"
+        role="dialog">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add New Department</h4>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body" style="max-height: 55vh; overflow: auto;">
+                    <form name="registerNewDepartmentForm" id="registerNewDepartmentForm">
+                        <div class="form-group col-xs-12 col-md-12 col-lg-12">
+                            <label class="control-label" for="entomoCompanyName">New Department Name *</label>
+                            <input type="text" name="entomodepartmentname" id="entomodepartmentname"
+                                class="form-control" maxlength="128" placeholder="Provide full name of the department"
+                                data-required-error="This is a mandatory field" required />
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group col-xs-12 col-md-12 col-lg-12">
+                            <label class="control-label" for="entomoCompanydesignation">Department designation *</label>
+                            <input type="text" name="departmentdesignation" id="departmentdesignation"
+                                class="form-control" maxlength="128" placeholder="Provide full name of  designation"
+                                data-required-error="This is a mandatory field" required />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group col-xs-12 col-md-12 col-lg-12">
+                            <label class="control-label" for="entomoCompanydeptlocation">Department location *</label>
+                            <input type="text" name="departmentlocation" id="departmentlocation" class="form-control"
+                                maxlength="64" placeholder="Provide location of the department"
+                                data-required-error="This is a mandatory field" required />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="savenewdeparment" class="btn btn-success pull-left">Save</button>
+                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- actual excutebale code strat from here -->
+    <div class="container-fluid" >
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12" id="headerdiv" style="padding-top:2%; ">
+
+                <div id="header">
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 " id="navgation" >
+                <div id="navbar" style="margin-left: 8%; margin-right: 20%;" >
+
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-8" style="margin-top:  5%;">
+
+                <button class="fas fa-plus btn btn-primary float-right " data-toggle="modal"
+                    data-target="#registerDeptModal" id="adddepartment" name="adddepartment" style="margin-right: 10%;">
+                    Add Department</button>
+
+
+                <div class="input-group-prepend" style="margin-bottom: 5%;">
+                    <div class="form-outline" style="width: 60%; ">
+                        <input type="search" id="form1" class="form-control" placeholder="Search department..." />
+                    </div>
+                    <button type="button" class="btn btn-primary fas fa-search"> Search</button>
+                    </button>
+                </div>
+
+                <div class="" style=" margin-right: 5%;">
+                    <table id="departmentdata" class="table table-striped table-hover thead-light">
+                        <thead>
+                            <tr class="row" style="text-align: center;">
+                                <th class="col-sm-2">S/L no</th>
+                                <th class="col-sm-4">Name</th>
+                                <th class="col-sm-4">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row " style="text-align: center;">
+                                <td class="col-sm-2">1</td>
+                                <td class="col-sm-4">System Architect</td>
+                                <td class="col-sm-4 ">
+                                    <a class="fas fa-eye hover" onclick="editdepartment();" data-toggle="modal"
+                                        data-target="#registerDeptModal" id="editdepartment" name="editdepartment"
+                                        style="padding-left: 3vh;"></a>
+
+                                    <a class="fas fa-edit hover" onclick="editdepartment();" data-toggle="modal"
+                                        data-target="#registerDeptModal" id="editdepartment" name="editdepartment"
+                                        style="padding-left: 3vh;"></a>
+
+                                    <a class="fas fa-trash hover" href="#" onclick="deletedepartment();"
+                                        style="padding-left: 3vh;"></a>
+
+                                    <!-- <div class="dropdown show">
+
+                                    <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ...
+                                    </a>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" onclick="editdepartment();" data-toggle="modal" data-target="#registerDeptModal" id="editdepartment" name="editdepartment">Edit</a>
+                                        <a class="dropdown-item" href="#" onclick="deletedepartment();"  >Delete</a>
+                                    </div>
+                                </div> -->
+                                </td>
+                            </tr>
+                            <tr class="row " style="text-align: center;">
+                                <td class="col-sm-2">1</td>
+                                <td class="col-sm-4">System Architect</td>
+                                <td class="col-sm-4">
+                                    <a class="fas fa-eye" onclick="editdepartment();" data-toggle="modal"
+                                        data-target="#registerDeptModal" id="editdepartment" name="editdepartment"
+                                        style="padding-left: 3vh;"></a>
+
+                                    <a class="fas fa-edit" onclick="editdepartment();" data-toggle="modal"
+                                        data-target="#registerDeptModal" id="editdepartment" name="editdepartment"
+                                        style="padding-left: 3vh;"></a>
+
+                                    <a class="fas fa-trash" href="#" onclick="deletedepartment();"
+                                        style="padding-left: 3vh;"></a>
+
+                                </td>
+                            </tr>
+                            <tr class="row " style="text-align: center;">
+                                <td class="col-sm-2">1</td>
+                                <td class="col-sm-4">System Architect</td>
+                                <td class="col-sm-4">
+                                    <a class="fas fa-eye" onclick="editdepartment();" data-toggle="modal"
+                                        data-target="#registerDeptModal" id="editdepartment" name="editdepartment"
+                                        style="padding-left: 3vh;"></a>
+
+                                    <a class="fas fa-edit" onclick="editdepartment();" data-toggle="modal"
+                                        data-target="#registerDeptModal" id="editdepartment" name="editdepartment"
+                                        style="padding-left: 3vh;"></a>
+
+                                    <a class="fas fa-trash" href="#" onclick="deletedepartment();"
+                                        style="padding-left: 3vh;"></a>
+
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                        <span class="border border-primary">
+                            <label for="totalcount"> Total Count :</label>
+                            <input type="text" id="totalcount" name="totalcount" value="" placeholder="Total count"
+                                style="border: none; width: 20vh;" disabled>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<footer style="margin-bottom: 10%;">
+
+</footer>
+
+
+    <script type="application/javascript">
+        $('#header').load('header.html');
+
+        $('#navbar').load('navbar.html');
+
+        $(document).ready(function () {
+            $('#departmentdata').DataTable();
+
+
+        });
+
+        $(function () {
+          var current = location.pathname;
+          $('.nav li a').each(function () {
+    
+            var $this = $(this);
+            // if the current path is like this link, make it active
+            if ($this.attr('href').indexOf(current) !== -1) {
+              $this.addClass(' btn btn-secondary btn-block active');
+            }
+          })
+        })
+        // Register Deparment
+        $('#savenewdeparment').click(function () {
+            alert("Database connection is not yet build.");
+            $.ajax({
+                url: "AJAX/registercustomer.php",
+                type: "POST",
+                data:
+                {
+                    'departmentname': $('#entomodepartmentname').val(),
+                    'designationame': $('#departmentdesignation').val(),
+                    'location': $('#departmentlocation').val()
+                },
+                success: function (results) {
+                    bootbox.alert({
+                        size: "small",
+                        title: "Success",
+                        message: "A new department deatils been successfully added.",
+                    });
+                    $("#registerCustModal").modal('hide');
+                }
+            });
+            document.getElementById('registerNewDepartmentForm').reset();
+        });
+        function editdepartment(departmentid) {
+            alert("Database is not ready to edit");
+            $.ajax({
+                url: 'database/',
+                type: 'POST',
+                data: {
+                    'departmentid': departmentid
+                },
+                success: function (results) {
+                    var departmentvalues = $.parseJSON(results);
+                    $('#entomodepartmentname').val(departmentvalues[0]['  ']);
+                    $('#departmentdesignation').val(departmentvalues[0]['  ']);
+                    $('#departmentlocation').val(departmentvalues[0]['  ']);
+                    $('#deparmentid').val(departmentvalues[0]['   ']);
+                }
+            });
+            document.getElementById('registerNewDepartmentForm').reset();
+
+        }
+        function deletedepartment() {
+            alert("Database is not ready to delete");
+
+        }
+    </script>
+</body>
+
+</html>

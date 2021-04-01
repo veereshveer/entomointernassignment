@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Angular Example</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- css file  -->
+  <link rel="stylesheet" href="overall.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+  <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" language="javascript"
+    src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" language="javascript"
+    src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 col-md-2 col-sm-3 ">
+        <div>
+          <img src="../images/entomo.jpg" width="80%" height="50%">
+        </div>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-10 d-flex justify-content-between">
+        <h3 class="" style="margin-left: 20%;"> Office Management</h3>
+        <div class="text-right">
+        
+            <p  class="clock  mb-0  " id="runningclock" name="runningclock">Runing clock</P>
+            <p class="mb-0">Welcome 'User Name'</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+    $('#header-include').load('head1.html');
+    setInterval(displayclock, 500);
+    function displayclock() {
+      var time = new Date();
+      var date = time.getDate();
+      var month = time.getMonth();
+      var year = time.getUTCFullYear();
+      var hrs = time.getHours();
+      var min = time.getMinutes();
+      var sec = time.getSeconds();
+      var am_pm = "PM";
+
+      if (hrs > 12) {
+        hrs = hrs - 12;
+        am_pm = "PM";
+      } 
+      else{
+        am_pm= "AM";
+
+      }
+      if (hrs == 0) {
+        hrs = 12;
+      }
+      if (hrs < 10) {
+        hrs = '0' + hrs;
+      }
+      if (min < 10) {
+        min = '0' + min;
+      }
+      if (sec < 10) {
+        sec = '0' + sec;
+      }
+      document.getElementById('runningclock').innerHTML = date + '/' + month+1 + '/' + year + ' ' + hrs + ':' + min + ':' + sec + " " + am_pm;
+    }
+
+  </script>
+</body>
+
+</html>
